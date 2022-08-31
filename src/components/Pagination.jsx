@@ -1,4 +1,4 @@
-function Pagination({ items, pageSize, currentPage, onPageChange }) {
+function Pagination() {
 	return <h1>Esta será la paginación</h1>;
 }
 

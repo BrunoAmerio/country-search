@@ -1,7 +1,11 @@
 {
-	"name": "kimche-challenge2",
+	"name": "kimche-challenge",
 	"version": "0.1.0",
 	"private": true,
+	"author": {
+		"name": "Bruno Amerio",
+		"email": "ameriobruno00@gmail.com"
+	},
 	"dependencies": {
 		"@apollo/client": "^3.6.9",
 		"@testing-library/jest-dom": "^5.16.5",
@@ -56,7 +60,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{js,json,css,md,html}": [
+		"*.{js,jsx,json,css,md,html}": [
 			"prettier --write",
 			"git add"
 		]

@@ -51,4 +51,5 @@ const Ul = styled.ul`
 	widht: 100%;
 	flex-wrap: wrap;
 `;
+
 export default Card;

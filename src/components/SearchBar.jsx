@@ -52,22 +52,6 @@ function SearchBar() {
 	);
 }
 
-const Container = styled.nav`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 15px;
-	padding-top: 10px;
-`;
-
-const SearchContainer = styled.div`
-	display: flex;
-	align-items: center;
-	background-color: white;
-	border-radius: 8px;
-	gap: 10px;
-`;
-
 const Button = styled.button`
 	border: none;
 	border-radius: 4px;
@@ -93,6 +77,14 @@ const ButtonPressed = styled.button`
 	transform: translate(3px, 1px);
 `;
 
+const Container = styled.nav`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	padding-top: 10px;
+`;
+
 const Input = styled.input`
 	border: none;
 	border-radius: 8px;
@@ -104,6 +96,14 @@ const Input = styled.input`
 	&:focus {
 		outline: none;
 	}
+`;
+
+const SearchContainer = styled.div`
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border-radius: 8px;
+	gap: 10px;
 `;
 
 export default SearchBar;

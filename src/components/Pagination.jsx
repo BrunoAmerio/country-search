@@ -41,17 +41,17 @@ function Pagination({ items, pageSize, currentPage, onPageChange }) {
 	);
 }
 
-const ButtonsContainer = styled.div`
-	display: flex;
-	gap: 5px;
-	justify-content: center;
-`;
-
 const CurrentButton = styled.button`
 	border: none;
 	padding: 5px 10px;
 	background-color: rgb(59, 149, 252);
 	cursor: pointer;
+`;
+
+const ButtonsContainer = styled.div`
+	display: flex;
+	gap: 5px;
+	justify-content: center;
 `;
 
 export default Pagination;

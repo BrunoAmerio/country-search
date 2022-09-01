@@ -56,6 +56,7 @@ const Container = styled.div`
 	background-color: rgb(230, 230, 230);
 	border-radius: 8px;
 	border: none;
+	scroll-snap-align: center;
 `;
 
 const Ul = styled.ul`

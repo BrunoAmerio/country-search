@@ -34,10 +34,13 @@ function Footer() {
 }
 
 const Container = styled.footer`
-	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+
 	width: 90vw;
-	margin: auto;
-	margin-top: 10vh;
+	text-align: center;
 `;
 
 export default Footer;

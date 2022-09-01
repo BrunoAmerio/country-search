@@ -25,14 +25,16 @@ const Container = styled.div`
 	grid-template-columns: auto auto;
 	justify-items: center;
 	align-items: flex-end;
-
 	row-gap: 20px;
 
 	height: fit-content;
-	max-height: 78vh;
+	max-height: 65vh;
 	width: 80vw;
 	margin: 10px auto;
+	padding-bottom: 50px;
+
 	overflow-y: scroll;
+	scroll-snap-type: y proximity;
 
 	&::-webkit-scrollbar {
 		width: 10px;

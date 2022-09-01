@@ -27,14 +27,9 @@ function Pagination({ items, pageSize, currentPage, onPageChange }) {
 					return <CurrentButton key={page}>{page}</CurrentButton>;
 				}
 				return (
-					<button
-						key={page}
-						onClick={() => onPageChange(page)}
-						type='button'
-						style={{ border: 'none', padding: '5px 10px', cursor: 'pointer' }}
-					>
+					<Button key={page} onClick={() => onPageChange(page)} type='button'>
 						{page}
-					</button>
+					</Button>
 				);
 			})}
 		</ButtonsContainer>
@@ -43,6 +38,7 @@ function Pagination({ items, pageSize, currentPage, onPageChange }) {
 
 const CurrentButton = styled.button`
 	border: none;
+	border-radius: 4px;
 	padding: 5px 10px;
 	background-color: rgb(59, 149, 252);
 	color: white;
@@ -53,6 +49,17 @@ const ButtonsContainer = styled.div`
 	display: flex;
 	gap: 5px;
 	justify-content: center;
+`;
+
+const Button = styled.button`
+	border: none;
+	border-radius: 4px;
+	padding: 5px 10px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgb(179, 179, 179);
+	}
 `;
 
 export default Pagination;

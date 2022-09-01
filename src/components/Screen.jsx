@@ -18,7 +18,13 @@ function Screen() {
 	);
 
 	return (
-		<div style={{ position: 'relative' }}>
+		<div
+			style={{
+				position: 'relative',
+				height: '100vh',
+				minHeight: '745px',
+			}}
+		>
 			<SearchBar />
 			<CardContainer items={paginateItems} />
 			<Pagination

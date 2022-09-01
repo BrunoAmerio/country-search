@@ -8,10 +8,11 @@ import CardContainer from './components/CardContainer';
 import Pagination from './components/Pagination';
 
 function App() {
-	const { loading, error, filterCountries } = useAppContext();
+	const { loading, error, filterCountries, currentPage, setCurrentPage } =
+		useAppContext();
 
 	const [paginateItems, setPaginateItems] = useState([]);
-	const [currentPage, setCurrentPage] = useState(1);
+
 	const pageSize = 12;
 
 	useEffect(() => {

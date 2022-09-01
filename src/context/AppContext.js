@@ -10,6 +10,7 @@ function AppContextProvider({ children }) {
 
 	const [search, setSearch] = useState('');
 	const [filterCountries, setFilterCountries] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	// Estados que indican que información detallar en las Card's
 	const [languageGroup, setLanguageGroup] = useState(false);
@@ -25,6 +26,7 @@ function AppContextProvider({ children }) {
 					item.name.toLowerCase().includes(search.trim().toLowerCase())
 				)
 			);
+			setCurrentPage(1);
 		}
 	}, [search, data]);
 
@@ -32,6 +34,8 @@ function AppContextProvider({ children }) {
 		() => ({
 			filterCountries,
 			search,
+			currentPage,
+			setCurrentPage,
 			setSearch,
 			languageGroup,
 			setLanguageGroup,
@@ -40,7 +44,7 @@ function AppContextProvider({ children }) {
 			loading,
 			error,
 		}),
-		[search, filterCountries, continentGroup, languageGroup]
+		[search, filterCountries, continentGroup, languageGroup, currentPage]
 	);
 
 	return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

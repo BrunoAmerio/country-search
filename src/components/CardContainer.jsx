@@ -24,11 +24,13 @@ const Container = styled.div`
 	display: grid;
 	grid-template-columns: auto auto;
 	justify-items: center;
+	align-items: flex-end;
 
-	row-gap: 25px;
+	row-gap: 20px;
 
-	height: 78vh;
-	width: 90vw;
+	height: fit-content;
+	max-height: 78vh;
+	width: 80vw;
 	margin: 10px auto;
 	overflow-y: scroll;
 
@@ -46,8 +48,9 @@ const Container = styled.div`
 		border-radius: 2px;
 	}
 
-	@media (max-width: 890px) {
-		grid-template-columns: 1fr !important;
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+		width: 90vw;
 	}
 `;
 

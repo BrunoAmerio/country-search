@@ -45,6 +45,7 @@ const CurrentButton = styled.button`
 	border: none;
 	padding: 5px 10px;
 	background-color: rgb(59, 149, 252);
+	color: white;
 	cursor: pointer;
 `;
 

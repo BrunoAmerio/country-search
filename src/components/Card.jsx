@@ -29,18 +29,34 @@ function Card({ data }) {
 				</Ul>
 			) : null}
 
-			<div style={{ border: '1px solid white', padding: ' 0px 10px' }}>
+			<Container style={{ padding: ' 0px 10px 5px 10px' }}>
 				<div style={{ display: ' flex', alignItems: 'baseline', gap: 10 }}>
 					<p>{data.emoji}</p>
-					<h2 style={{ color: 'white' }}>{data.name}</h2>
+					<h2 style={{ color: 'black' }}>{data.name}</h2>
 				</div>
-				<p>Capital: {data.capital}</p>
-				<p>Gentilic: {data.native}</p>
-				<p>Currency: {data.currency}</p>
-			</div>
+				<p>
+					{' '}
+					<b>Capital:</b> {data.capital}
+				</p>
+				<p>
+					{' '}
+					<b>Gentilic:</b> {data.native}
+				</p>
+				<p>
+					{' '}
+					<b>Currency:</b> {data.currency}
+				</p>
+			</Container>
 		</div>
 	);
 }
+
+const Container = styled.div`
+	color: black;
+	background-color: rgb(230, 230, 230);
+	border-radius: 8px;
+	border: none;
+`;
 
 const Ul = styled.ul`
 	display: flex;

@@ -10,9 +10,15 @@ function SearchBar() {
 		languageGroup,
 	} = useAppContext();
 
-	const handleClick = () => {
-		setContinentGroup(value => !value);
-		setLanguageGroup(value => !value);
+	const handleClick = e => {
+		const { id } = e.target;
+		if (id === 'continent') {
+			setContinentGroup(true);
+			setLanguageGroup(false);
+		} else {
+			setContinentGroup(false);
+			setLanguageGroup(true);
+		}
 	};
 
 	return (
@@ -37,9 +43,13 @@ function SearchBar() {
 
 			<div style={{ display: 'flex', gap: ' 5vw' }}>
 				{continentGroup ? (
-					<ButtonPressed onClick={handleClick}>Continent</ButtonPressed>
+					<ButtonPressed onClick={handleClick} id='continent'>
+						Continent
+					</ButtonPressed>
 				) : (
-					<Button onClick={handleClick}>Continent</Button>
+					<Button onClick={handleClick} id='continent'>
+						Continent
+					</Button>
 				)}
 
 				{languageGroup ? (
@@ -75,6 +85,7 @@ const ButtonPressed = styled.button`
 	font-weight: bolder;
 	box-shadow: none;
 	transform: translate(3px, 1px);
+	cursor: pointer;
 `;
 
 const Container = styled.nav`

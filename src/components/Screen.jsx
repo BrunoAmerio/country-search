@@ -4,6 +4,7 @@ import { useAppContext } from '../context/AppContext';
 import SearchBar from './SearchBar';
 import CardContainer from './CardContainer';
 import Pagination from './Pagination';
+import Footer from './Footer';
 import usePaginateItems from '../hooks/usePaginateItems';
 
 function Screen() {
@@ -26,6 +27,7 @@ function Screen() {
 				pageSize={pageSize}
 				onPageChange={setCurrentPage}
 			/>
+			<Footer />
 		</div>
 	);
 }

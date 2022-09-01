@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Desafío para Software Engineers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+`Nombre postulante:` Amerio Bruno\
+`Link a la app en producción:` https://country-search-seven.vercel.app/
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de ejecutar la aplicación, debe instalar todos los paquetes usando `npm install`. Ahora si, puedes continuar...\
+Ejecuta la aplicación en el modo de desarrollo.\
+En [http://localhost:3000](http://localhost:3000) podrá verlo en su navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Pregunta: `
 
-### `npm test`
+"La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc."
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Respuesta:`
 
-### `npm run build`
+Veamos una consulta como esta:\
+SELECT \* FROM alumnos WHERE apellido="zamora"\
+Sin ningún orden en nuestros datos, MySQL debe leer todos los registros de la tabla "alumnos" y efectuar una comparación entre el campo "apellido"
+y la cadena de caracteres "zamora" para encontrar alguna coincidencia.
+Para que la consulta anterior se ejecute más rápido en nuestro sistema gestor de base de datos, nos vendría bien crear un índice por apellido.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+( Como se va a indexar una columna de cadenas, se debe especificar una longitud prefijada, por ejemplo CHAR(100))
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Crearemos un indicie en la columna apellido con el siguiente comando.\
+ALTER TABLE alumnos ADD INDEX (apellido)\
+De esta forma indicamos a MySQL que genere una lista ordenada de todos los apellidos de la tabla personas. Ahora, localizaríamos fácilmente
+a cualquiera con apellido "zamora" yendo al final de la lista a la letra "Z".
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Otra causa del bajo rendimiento es debido a la "fragmentacion" de una tabla al eliminar registros de la misma, debido a que el espacio no se reasigna
+automáticamente, si no que queda como espacio vacío y recién cuando se realizan nuevas inserciones se va aprovechando.
+Con MyISAM e InnoDB de MySQL, disponemos del comando OPTIMIZE TABLE para poder realizar sobre cualquier tabla una optimización que, entre otras cosas,
+realiza una defragmentación automática de la tabla.
 
-### `npm run eject`
+## Hints
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tecnologías y metodologías implementadas:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Gitignore](https://www.toptal.com/developers/gitignore)
+- [GraphQL](https://www.howtographql.com/)
+- [React](https://es.reactjs.org/)
+- [Styled components](https://styled-components.com/docs/basics)
+- [ApolloClient](https://www.apollographql.com/docs/react/)
+- [Lodash](https://lodash.com/)
+- [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Commitlint](https://commitlint.js.org/#/)
+- [Eslint](https://eslint.org/)
+- [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+- [Husky](https://www.npmjs.com/package/husky)

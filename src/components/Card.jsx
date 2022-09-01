@@ -14,29 +14,19 @@ function Card({ data }) {
 
 			{/* Lo siguiente solo lo hacemos por cuestiones esteticas */}
 			{languageGroup ? (
-				data.languages.length > 3 ? (
-					<p style={{ fontWeight: 'bolder', fontSize: '30px' }}>
-						{data.languages.map((item, index) =>
-							index === data.languages.length - 1
+				<Ul>
+					{data.languages.map((item, index) => (
+						<li
+							key={item.name}
+							style={{ fontWeight: 'bolder', fontSize: '30px' }}
+						>
+							{' '}
+							{index === data.languages.length - 1
 								? `${item.name}`
-								: `${item.name}, `
-						)}
-					</p>
-				) : (
-					<Ul>
-						{data.languages.map((item, index) => (
-							<li
-								key={item.name}
-								style={{ fontWeight: 'bolder', fontSize: '30px' }}
-							>
-								{' '}
-								{index === data.languages.length - 1
-									? `${item.name}`
-									: `${item.name}, `}
-							</li>
-						))}
-					</Ul>
-				)
+								: `${item.name}, `}
+						</li>
+					))}
+				</Ul>
 			) : null}
 
 			<div style={{ border: '1px solid white', padding: ' 0px 10px' }}>
@@ -58,5 +48,7 @@ const Ul = styled.ul`
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
+	widht: 100%;
+	flex-wrap: wrap;
 `;
 export default Card;

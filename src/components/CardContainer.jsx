@@ -27,10 +27,9 @@ const Container = styled.div`
 
 	row-gap: 25px;
 
-	height: 85vh;
+	height: 78vh;
 	width: 90vw;
-	margin: auto;
-	margin-top: 10px;
+	margin: 10px auto;
 	overflow-y: scroll;
 
 	&::-webkit-scrollbar {

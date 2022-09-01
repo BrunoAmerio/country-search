@@ -1,23 +1,57 @@
 import _ from 'lodash';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 function Pagination({ items, pageSize, currentPage, onPageChange }) {
-	const pageCount = items / pageSize;
-	// En caso de que solamente obtengamos una página no mostramos nada
-	if (Math.ceil(pageCount) === 1) return null;
+	const [pages, setPages] = useState([]);
+	const pageCount = Math.ceil(items / pageSize);
 
-	console.log('Hay que usar:', currentPage);
-	// Caso contrario, obtenemos la cantidad de páginas que tendríamos según la ctd. de items que se muestran en cada una de ellas
-	const pages = _.range(1, pageCount + 1);
+	useEffect(() => {
+		if (currentPage > 3 && currentPage < pageCount - 2) {
+			setPages([
+				..._.range(currentPage - 1, currentPage - 3).reverse(),
+				currentPage,
+				..._.range(currentPage + 1, currentPage + 3),
+			]);
+		} else if (currentPage <= 5) {
+			setPages(_.range(1, pageCount >= 5 ? 6 : pageCount + 1));
+		}
+	}, [currentPage, items]);
+
+	if (pageCount <= 1) return null;
 
 	return (
-		<div>
-			{pages.map(page => (
-				<button key={page} onClick={() => onPageChange(page)} type='button'>
-					{page}
-				</button>
-			))}
-		</div>
+		<ButtonsContainer>
+			{pages.map(page => {
+				if (page === currentPage) {
+					return <CurrentButton key={page}>{page}</CurrentButton>;
+				}
+				return (
+					<button
+						key={page}
+						onClick={() => onPageChange(page)}
+						type='button'
+						style={{ border: 'none', padding: '5px 10px', cursor: 'pointer' }}
+					>
+						{page}
+					</button>
+				);
+			})}
+		</ButtonsContainer>
 	);
 }
+
+const ButtonsContainer = styled.div`
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+`;
+
+const CurrentButton = styled.button`
+	border: none;
+	padding: 5px 10px;
+	background-color: rgb(59, 149, 252);
+	cursor: pointer;
+`;
 
 export default Pagination;

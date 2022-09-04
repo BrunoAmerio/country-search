@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useAppContext } from '../context/AppContext';
 
 // Components
@@ -18,13 +19,7 @@ function Screen() {
 	);
 
 	return (
-		<div
-			style={{
-				position: 'relative',
-				height: '100vh',
-				minHeight: '745px',
-			}}
-		>
+		<Container>
 			<SearchBar />
 			<CardContainer items={paginateItems} />
 			<Pagination
@@ -34,8 +29,14 @@ function Screen() {
 				onPageChange={setCurrentPage}
 			/>
 			<Footer />
-		</div>
+		</Container>
 	);
 }
+
+const Container = styled.div`
+	position: relative;
+	height: 100vh;
+	min-height: 745px;
+`;
 
 export default Screen;

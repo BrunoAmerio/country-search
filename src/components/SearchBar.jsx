@@ -24,16 +24,9 @@ function SearchBar() {
 	return (
 		<Container>
 			<SearchContainer>
-				<button
-					type='button'
-					style={{
-						border: 'none',
-						backgroundColor: 'transparent',
-						cursor: 'pointer',
-					}}
-				>
+				<SearchButton type='button'>
 					<img src='/icons/search.svg' alt='searchIcon' />
-				</button>
+				</SearchButton>
 				<Input
 					type='text'
 					placeholder='Enter the name of a country'
@@ -41,7 +34,7 @@ function SearchBar() {
 				/>
 			</SearchContainer>
 
-			<div style={{ display: 'flex', gap: ' 5vw' }}>
+			<ButtonContainer>
 				{continentGroup ? (
 					<ButtonPressed onClick={handleClick} id='continent'>
 						Continent
@@ -57,10 +50,15 @@ function SearchBar() {
 				) : (
 					<Button onClick={handleClick}>Language</Button>
 				)}
-			</div>
+			</ButtonContainer>
 		</Container>
 	);
 }
+
+const ButtonContainer = styled.div`
+	display: flex;
+	gap: 5vw;
+`;
 
 const Button = styled.button`
 	border: none;
@@ -115,6 +113,12 @@ const SearchContainer = styled.div`
 	background-color: white;
 	border-radius: 8px;
 	gap: 10px;
+`;
+
+const SearchButton = styled.button`
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 `;
 
 export default SearchBar;

@@ -4,12 +4,7 @@ function Footer() {
 	return (
 		<Container>
 			<p>
-				This project was developed for the Software Engineer challenge in
-				<a href='https://www.kimche.co/' rel='noreferrer' target='_blank'>
-					{' '}
-					Kimche{' '}
-				</a>
-				by{' '}
+				This project was developed by{' '}
 				<a
 					href='https://www.linkedin.com/in/bruno-amerio/'
 					rel='noreferrer'

@@ -27,18 +27,17 @@ function Card({ data, id }) {
 					<p>{data.emoji}</p>
 					<h2 style={{ color: 'black' }}>{data.name}</h2>
 				</Div>
-
 				<p>
 					{' '}
-					<b>Capital:</b> {data.capital}
+					<b>In native language:</b> {data.native || 'None'}
 				</p>
 				<p>
 					{' '}
-					<b>Gentilic:</b> {data.native}
+					<b>Capital:</b> {data.capital || 'None'}
 				</p>
 				<p>
 					{' '}
-					<b>Currency:</b> {data.currency}
+					<b>Currency:</b> {data.currency || 'None'}
 				</p>
 			</DataContainer>
 		</MainContainer>

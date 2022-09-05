@@ -18,8 +18,8 @@ function ArrowDown() {
 }
 
 ArrowDown.defaultProps = {
-	height: 24,
-	width: 24,
+	height: 11,
+	width: 19,
 };
 
 export default ArrowDown;
